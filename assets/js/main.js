@@ -1,6 +1,3 @@
-// api key: e843ca4542f44d908e59b6d85446fcee
-// country=de&category=business
-
 document.querySelector("#country").addEventListener("change", changeCountry);
 document.querySelector("#category").addEventListener("change", changeCategory);
 
@@ -20,6 +17,7 @@ function changeCategory(event) {
 }
 
 function getNews() {
+	console.log("I'm here!");
 	fetch(
 		`https://newsapi.org/v2/top-headlines?country=${countryCode}&category=${category}&apiKey=e843ca4542f44d908e59b6d85446fcee`
 	)
@@ -60,6 +58,7 @@ function getNews() {
 }
 
 getNews();
+
 // * scroll to top function
 document.querySelector("button").addEventListener("click", () => {
 	window.scrollTo(0, 0);
