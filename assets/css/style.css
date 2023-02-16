@@ -23,11 +23,14 @@ header {
 	z-index: 100;
 }
 
-select {
+select,
+#keywords {
 	padding: 0.5rem;
 	border-radius: 3px;
 	height: fit-content;
 	width: 160px;
+	border: 1px solid black;
+	background: #e0e0e0;
 }
 
 main {
@@ -54,6 +57,31 @@ section {
 	justify-content: space-between;
 	transition: all 0.3s ease;
 	cursor: pointer;
+}
+
+.search {
+	position: relative;
+}
+
+.filter {
+	display: flex;
+	gap: 0.5rem;
+}
+label {
+	position: absolute;
+	font-size: 0.8rem;
+	width: fit-content;
+	margin: 0.5rem 1rem;
+	left: 0;
+	cursor: pointer;
+	padding: 0.1rem;
+	transition: ease-in 0.3s;
+	background: #e0e0e0;
+}
+
+input:focus + label {
+	transform: translateY(-15px);
+	background: #e0e0e0;
 }
 
 section:hover {

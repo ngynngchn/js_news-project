@@ -1,8 +1,10 @@
 document.querySelector("#country").addEventListener("change", changeCountry);
 document.querySelector("#category").addEventListener("change", changeCategory);
+document.querySelector("#keywords").addEventListener("input", searchKeywords);
 
 let countryCode = "de";
 let category = "";
+let keywords = "";
 
 function changeCountry(event) {
 	document.querySelector("main").innerHTML = "";
@@ -15,11 +17,16 @@ function changeCategory(event) {
 	document.querySelector("main").innerHTML = "";
 	getNews();
 }
+function searchKeywords(event) {
+	keywords = event.target.value;
+	document.querySelector("main").innerHTML = "";
+	getNews();
+}
 
 function getNews() {
 	console.log("I'm here!");
 	fetch(
-		`https://newsapi.org/v2/top-headlines?country=${countryCode}&category=${category}&apiKey=e843ca4542f44d908e59b6d85446fcee`
+		`https://newsapi.org/v2/top-headlines?q=${keywords}country=${countryCode}&category=${category}&apiKey=e843ca4542f44d908e59b6d85446fcee`
 	)
 		.then((response) => response.json())
 		.then((news) => {

@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<h1>Atuelle Nachrichten</h1>
-			<div>
+			<div class="filter">
 				<select name="category" id="category">
 					<option selected disabled>Choose a Category</option>
 					<option value="business">Business</option>
@@ -29,6 +29,10 @@
 					<option value="fr">Frankreich</option>
 					<option value="us">Vereinigte Staaten</option>
 				</select>
+				<div class="search">
+					<input type="search" name="keywords" id="keywords" />
+					<label for="keywords">Search for</label>
+				</div>
 			</div>
 		</header>
 		<main></main>
