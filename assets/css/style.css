@@ -26,15 +26,15 @@ footer {
   top: 0;
   left: 0;
   right: 0;
-  backdrop-filter: blur(3px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 100;
-  background-color: rgba(224, 224, 224, 0.537254902);
   border-radius: 3px;
   background: #e0e0e0;
   box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+  background-color: rgba(224, 224, 224, 0.537254902);
+  backdrop-filter: blur(3px);
 }
 
 h1 {

@@ -45,13 +45,13 @@ footer {
 	top: 0;
 	left: 0;
 	right: 0;
-	backdrop-filter: blur(3px);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	z-index: 100;
-	background-color: #e0e0e089;
 	@include border-lg;
+	background-color: #e0e0e089;
+	backdrop-filter: blur(3px);
 }
 
 h1 {
