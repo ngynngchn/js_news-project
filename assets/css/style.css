@@ -8,33 +8,39 @@ body {
 	background-color: #e0e0e0;
 	color: rgb(36, 35, 35);
 }
-header {
-	margin: 1rem 0;
+
+header,
+footer {
+	margin: 1rem 3rem;
 	padding: 1rem;
-	box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
+	box-shadow: 15px 15px 20px #bebebe, -15px -15px 20px #ffffff;
 	background-color: #e0e0e089;
 	backdrop-filter: blur(3px);
 	display: flex;
 	justify-content: space-between;
 	z-index: 100;
+	border-radius: 3px;
 }
 
-select,
-#keywords {
+select {
 	padding: 0.5rem;
-	border-radius: 3px;
 	height: fit-content;
 	width: 160px;
-	border: 1px solid black;
+	border: none;
+	border-radius: 3px;
 	background: #e0e0e0;
+	box-shadow: 3px 3px 6px #cecece, -3px -3px 6px #f2f2f2;
+	cursor: pointer;
 }
 
 main {
-	margin: 9rem 5vw;
+	margin-block: 120px 100px;
+	/* margin-block: 180px 100px; */
+	margin-inline: 250px 3rem;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
@@ -43,12 +49,29 @@ main {
 
 footer {
 	padding: 1rem;
+	top: auto;
+	bottom: 0;
+	box-shadow: 5px 5px 10px #bebebe, -2px -2px 10px #ffffff;
+	background-color: #e0e0e0ee;
+	backdrop-filter: blur(3px);
+	display: flex;
+	align-items: center;
+}
+
+.socials a {
+	display: inline-block;
+	padding: 0.5rem 0.7rem;
+	margin: 0;
+}
+
+.socials > a > img {
+	width: 20px;
 }
 
 section {
-	width: 25vw;
+	width: 23vw;
 	min-width: 350px;
-	border-radius: 10px;
+	border-radius: 5px;
 	background: #e0e0e0;
 	box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
 	padding: 0.5rem;
@@ -56,47 +79,59 @@ section {
 	flex-direction: column;
 	justify-content: space-between;
 	transition: all 0.3s ease;
-	cursor: pointer;
 }
 
 .search {
 	position: relative;
 }
 
+#keywords {
+	padding: 0.5rem 0 0.5rem 33px;
+	height: fit-content;
+	width: 35px;
+	border: none;
+	border-radius: 3px;
+	background: #e0e0e0;
+	box-shadow: inset 3px 3px 6px #cecece, inset -3px -3px 6px #f2f2f2;
+	transition: all ease 0.3s;
+}
+
 .filter {
 	display: flex;
 	gap: 0.5rem;
 }
+
+#keywords:hover,
+#keywords:focus {
+	width: 160px;
+}
+
 label {
 	position: absolute;
-	font-size: 0.8rem;
-	width: fit-content;
-	margin: 0.5rem 1rem;
+	margin: 0.4rem 0.5rem 0.5rem;
+	width: 30px;
 	left: 0;
 	cursor: pointer;
-	padding: 0.1rem;
 	transition: ease-in 0.3s;
-	background: #e0e0e0;
 }
 
-input:focus + label {
-	transform: translateY(-15px);
-	background: #e0e0e0;
-}
-
-section:hover {
-	transform: scale(1.01);
+label > img {
+	width: 20px;
 }
 
 img {
 	width: 100%;
 	height: 40%;
 	object-fit: cover;
+	border-radius: 3px;
 }
 
 h2 {
 	margin: 0.5rem 0.2rem;
 	font-size: 1.1rem;
+}
+h1 {
+	text-shadow: 3px 3px 6px #cecece;
 }
 
 p {
@@ -114,24 +149,76 @@ a {
 	text-decoration: none;
 	width: fit-content;
 	display: block;
-	color: whitesmoke;
-	background-color: rgb(21, 19, 19);
-	border-radius: 3px;
+	color: rgb(32, 31, 31);
+	background: #e0e0e0;
 	padding: 0.5rem 1rem;
 	margin: 0.5rem auto;
-	align-self: flex-end;
+	box-shadow: 3px 3px 6px #cecece, -3px -3px 6px #f2f2f2;
+	border-radius: 3px;
 }
 
-a:hover {
-	transform: translateY(2px);
+a:hover,
+button:hover,
+select:hover {
+	transform: translateY(1px);
+	box-shadow: inset 1px 1px 2px #bebebe, inset -1px -1px 2px #ffffff;
 }
 
 button {
 	padding: 0.5rem;
-	margin: 0 auto;
+
 	width: fit-content;
 	cursor: pointer;
+	border: none;
+	border-radius: 3px;
+	background: #e0e0e0;
+	box-shadow: 3px 3px 6px #cecece, -3px -3px 6px #f2f2f2;
+}
+
+.seperator {
+	width: 100%;
+	height: 5px;
+	border-radius: 50px;
+	background: #e0e0e0;
+	box-shadow: inset 1px 1px 2px #bebebe, inset -1px -1px 2px #ffffff;
+}
+
+.btn {
 	display: none;
+}
+
+.cat {
+	position: fixed;
+	/* top: 100px; */
+	top: 120px;
+	/* left: 50%;
+	transform: translate(-50%); */
+	left: 0;
+	display: flex;
+	/* flex-direction: row; */
+	flex-direction: column;
+	width: 180px;
+	padding: 1rem;
+	margin-left: 3rem;
+	gap: 1rem;
+	box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+	background-color: #e0e0e0ee;
+	border-radius: 3px;
+}
+
+.cat > button {
+	padding: 0.7rem;
+	height: fit-content;
+	font-size: 1rem;
+	width: 100%;
+}
+
+.icon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0.3rem;
+	font-size: 0.4rem;
 }
 
 @media (max-width: 796px) {

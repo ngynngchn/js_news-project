@@ -5,13 +5,15 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./assets/css/style.css" />
+
 		<title>Nachrichten</title>
 	</head>
 	<body>
 		<header>
-			<h1>Atuelle Nachrichten</h1>
+			<h1>NEWS</h1>
+
 			<div class="filter">
-				<select name="category" id="category">
+				<!-- <select name="category" id="category">
 					<option selected disabled>Choose a Category</option>
 					<option value="business">Business</option>
 					<option value="entertainment">Entertainment</option>
@@ -20,7 +22,7 @@
 					<option value="science">Science</option>
 					<option value="sports">Sports</option>
 					<option value="technology">Technology</option>
-				</select>
+				</select> -->
 				<select name="country" id="country">
 					<option value="de">Deutschland</option>
 					<option value="tw">Taiwan</option>
@@ -31,13 +33,42 @@
 				</select>
 				<div class="search">
 					<input type="search" name="keywords" id="keywords" />
-					<label for="keywords">Search for</label>
+					<label for="keywords">
+						<img src="./assets/img/search.svg" alt="search icon"
+					/></label>
 				</div>
 			</div>
 		</header>
+
+		<aside class="cat" id="#category">
+			<h2>Category</h2>
+			<button value="business">Business</button>
+			<button value="entertainment">Entertainment</button>
+			<button value="general">General</button>
+			<button value="health">Health</button>
+			<button value="science">Science</button>
+			<button value="sports">Sports</button>
+			<button value="technology">Technology</button>
+			<div class="seperator"></div>
+			<a href="mailto:news@mail.com">Contact Us</a>
+		</aside>
 		<main></main>
 		<footer>
-			<button type="button">Zurück zum Anfang</button>
+			<button class="btn" type="button">Back to top</button>
+			<div class="socials">
+				<a href="#"
+					><img src="./assets/img/icons8-facebook-f.svg" alt="facebook icon"
+				/></a>
+				<a href="#"
+					><img src="./assets/img/icons8-instagram.svg" alt="instagram icon"
+				/></a>
+				<a href="#"
+					><img src="./assets/img/icons8-twitter.svg" alt="twitter icon"
+				/></a>
+				<a href="#"
+					><img src="./assets/img/icons8-youtube.svg" alt="youtube icon"
+				/></a>
+			</div>
 		</footer>
 
 		<script src="/assets/js/main.js"></script>

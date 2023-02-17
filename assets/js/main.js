@@ -1,5 +1,5 @@
 document.querySelector("#country").addEventListener("change", changeCountry);
-document.querySelector("#category").addEventListener("change", changeCategory);
+// document.querySelector("#category").addEventListener("change", changeCategory);
 document.querySelector("#keywords").addEventListener("input", searchKeywords);
 
 let countryCode = "de";
@@ -12,6 +12,10 @@ function changeCountry(event) {
 	getNews();
 }
 
+document.querySelectorAll("button:not(.btn)").forEach((category) => {
+	category.addEventListener("click", changeCategory);
+});
+
 function changeCategory(event) {
 	category = event.target.value;
 	document.querySelector("main").innerHTML = "";
@@ -21,12 +25,13 @@ function searchKeywords(event) {
 	keywords = event.target.value;
 	document.querySelector("main").innerHTML = "";
 	getNews();
+	document.querySelector("#keywords").innerHTML = "";
 }
 
 function getNews() {
 	console.log("I'm here!");
 	fetch(
-		`https://newsapi.org/v2/top-headlines?q=${keywords}country=${countryCode}&category=${category}&apiKey=e843ca4542f44d908e59b6d85446fcee`
+		`https://newsapi.org/v2/top-headlines?q=${keywords}&country=${countryCode}&category=${category}&apiKey=db54a69425aa419ba1f3a9bb16414a18`
 	)
 		.then((response) => response.json())
 		.then((news) => {
@@ -61,12 +66,12 @@ function getNews() {
 				document.querySelector("main").appendChild(card);
 			});
 		});
-	document.querySelector("button").style.display = "block";
+	document.querySelector(".btn").style.display = "block";
 }
 
 getNews();
 
 // * scroll to top function
-document.querySelector("button").addEventListener("click", () => {
+document.querySelector(".btn").addEventListener("click", () => {
 	window.scrollTo(0, 0);
 });
