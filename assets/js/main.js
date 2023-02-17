@@ -31,13 +31,15 @@ function searchKeywords(event) {
 function getNews() {
 	console.log("I'm here!");
 	fetch(
-		`https://newsapi.org/v2/top-headlines?q=${keywords}&country=${countryCode}&category=${category}&apiKey=db54a69425aa419ba1f3a9bb16414a18`
+		`https://newsapi.org/v2/top-headlines?q=${keywords}&country=${countryCode}&category=${category}&apiKey=e843ca4542f44d908e59b6d85446fcee`
 	)
 		.then((response) => response.json())
 		.then((news) => {
 			news.articles.forEach((data) => {
+				console.log(data);
 				// * save information in variables for later use
-				const { title, description, url, urlToImage, publishedAt } = data;
+				const { author, title, description, url, urlToImage, publishedAt } =
+					data;
 
 				// * create Elements to add to HTML
 				const card = document.createElement("section");
@@ -47,18 +49,25 @@ function getNews() {
 				const p = document.createElement("p");
 				const day = document.createElement("span");
 				const link = document.createElement("a");
+				const authorTag = document.createElement("h4");
+				const categoryTag = document.createElement("h5");
 
-				img.src = urlToImage;
+				authorTag.innerHTML = author ? author : "Unknown author";
+				img.src = urlToImage ? urlToImage : "./assets/img/notfound.png";
 				img.alt = "News-Image";
+				categoryTag.innerHTML = category ? category.toUpperCase() : "GENERAL";
 				header.textContent = title;
 				p.textContent = description;
 				day.textContent = publishedAt.slice(0, 10);
-				link.textContent = "MEHR LESEN";
+				link.textContent = "READ MORE";
 				link.href = url;
+				link.target = "_blank";
 
 				article.appendChild(header);
 				article.appendChild(p);
+				card.appendChild(authorTag);
 				card.appendChild(img);
+				card.appendChild(categoryTag);
 				card.appendChild(article);
 				card.appendChild(day);
 				card.appendChild(link);
@@ -66,7 +75,6 @@ function getNews() {
 				document.querySelector("main").appendChild(card);
 			});
 		});
-	document.querySelector(".btn").style.display = "block";
 }
 
 getNews();
